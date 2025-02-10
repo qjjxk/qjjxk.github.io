@@ -1,160 +1,166 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <link rel="shortcut icon" href="logo.ico" />
-  <link rel="bookmark" href="logo.ico" type="image/x-icon" />
-  <title>PKBLT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PKBLT - Game Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    table#tlayout {
-      border: none;
-      border-collapse: separate;
-      background: white;
+    :root {
+      --neon-blue: #00f3ff;
+      --cyber-purple: #bc13fe;
+      --dark-bg: #0a0a16;
     }
 
     body {
-      background: white;
-      font-family: Georgia, serif;
-      padding-bottom: 8px;
+      background: linear-gradient(45deg, var(--dark-bg) 30%, #1a1a2e);
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
       margin: 0;
+      line-height: 1.6;
     }
 
-    #layout-menu {
-      background: #f6f6f6;
-      border: 1px solid #dddddd;
-      padding-top: 0.5em;
-      padding-left: 8px;
-      padding-right: 8px;
-      font-size: 1.0em;
-      white-space: nowrap;
-      text-align: left;
-      vertical-align: top;
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
-    #layout-content {
-      padding-top: 0.0em;
-      padding-left: 1.0em;
-      padding-right: 1.0em;
-      border: none;
-      background: white;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    #layout-menu a.current:link,
-    #layout-menu a.current:visited {
-      color: #022b6d;
-      border-bottom: 1px gray solid;
-    }
-
-    div.menu-category {
-      border-bottom: 1px solid gray;
-      margin-top: 0.8em;
-      padding-top: 0.2em;
-      padding-bottom: 0.1em;
-      font-weight: bold;
-    }
-
-    div.menu-item {
-      padding-left: 16px;
-      text-indent: -16px;
-    }
-
-    div#toptitle {
-      padding-bottom: 0.2em;
-      margin-bottom: 1.5em;
-      border-bottom: 3px double gray;
-    }
-
-    h1,
-    h2 {
-      color: #eeff00;
-      margin-top: 0.7em;
-      margin-bottom: 0.3em;
-      padding-bottom: 0.2em;
-      line-height: 1.0;
-      padding-top: 0.5em;
-      border-bottom: 1px solid #aaaaaa;
-    }
-
-    h1 {
-      font-size: 165%;
-    }
-
-    h2 {
-      padding-top: 0.8em;
-      font-size: 125%;
-    }
-
-    p {
-      margin-top: 0.0em;
-      margin-bottom: 0.8em;
-      padding: 0;
-      line-height: 1.3;
-    }
-
-    ul {
-      list-style-position: outside;
-      list-style-type: square;
-    }
-
-
-    td {
-      padding: 2px;
-      padding-left: 0.5em;
-      padding-right: 0.5em;
+    .cyber-header {
       text-align: center;
-      border: 1px solid gray;
+      margin-bottom: 3rem;
+      position: relative;
     }
 
+    .cyber-header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, var(--neon-blue), var(--cyber-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+      letter-spacing: 2px;
+      margin: 1rem 0;
+    }
 
-    table.imgtable,
-    table.imgtable td {
-      border: none;
-      text-align: left;
+    .profile-card {
+      background: rgba(10, 10, 22, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+      border: 1px solid rgba(0, 243, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--neon-blue);
+      box-shadow: 0 0 25px var(--neon-blue);
+      transition: all 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(45deg, #1a1a2e, #2a2a4a);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid var(--neon-blue);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--neon-blue);
+      color: var(--dark-bg);
+      transform: scale(1.05);
+    }
+
+    .contact-link {
+      color: var(--neon-blue);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .contact-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--cyber-purple);
+      transition: width 0.3s ease;
+    }
+
+    .contact-link:hover::after {
+      width: 100%;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-blue);
+      border-left: 4px solid var(--cyber-purple);
+      padding-left: 1rem;
+      margin: 2rem 0;
     }
   </style>
 </head>
 
 <body>
-  <table summary="Table for page layout." id="tlayout">
-    <tr valign="top">
-      <td id="layout-content">
-        <div id="toptitle">
-          <h1>PKBLT</h1>
-        </div>
-        <table class="imgtable">
-          <tr>
-            <td>
-              <img src="assets/wy.jpg" alt="alt text" width="160px" height="160px" />&nbsp;
-            </td>
-            <td align="left">
-              <p>Experienced Game Developer,<br />
-                Unity3D Developer,<br />
-                Assetstore Publisher,<br /><br />
-                E-mail: <a href="mailto:pkblt@outlook.com">pkblt@outlook.com</a></p>
-            </td>
-          </tr>
-        </table>
-        <h2>About me</h2>
-        <p>Work in game industry since 2010. Start work with unity3d game since 2015.<br />An experienced game developer
-          in game industry.<br />
-          My technical skill:<br />
-          <li>Game development, full-stack</li>
-          <li>Game engine development, unity3d and in-house</li>
-          <li>Game graphics development (OpenGL/OpenGLES/DirectX)</li>
-          <li>Code with Shader (HLSL/CG/GLSL)</li>
-          <li>Code with C</li>
-          <li>Code with C++</li>
-          <li>Code with C#</li>
-          <li>Code with Python</li>
-          <li>Code with Javascript and Typescript</li><br />
-        </p>
-      </td>
-    </tr>
-  </table>
-</body>
+  <div id="container">
+    <div class="cyber-header">
+      <h1>PKBLT</h1>
+      <p>GAME DEVELOPMENT ARCHITECT</p>
+    </div>
 
+    <div class="profile-card">
+      <div style="display: flex; gap: 2rem; align-items: center;">
+        <img src="assets/wy.jpg" class="avatar" alt="Profile Photo">
+        <div>
+          <h3 style="margin-top: 0;">TECHNICAL ARTISAN</h3>
+          <p style="font-size: 1.1em;">
+            🔮 10+ Years in Game Development<br>
+            🎮 Unity3D Specialist<br>
+            🛠️ Full-Stack Development<br>
+            📧 <a href="mailto:pkblt@outlook.com" class="contact-link">pkblt@outlook.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">// TECHNICAL ARSENAL</h2>
+    
+    <div class="profile-card">
+      <div class="skill-tags">
+        <span class="skill-tag">Unity3D</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">OpenGL/DirectX</span>
+        <span class="skill-tag">HLSL/GLSL</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Game Architecture</span>
+        <span class="skill-tag">Graphics Programming</span>
+        <span class="skill-tag">Multiplayer Systems</span>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
